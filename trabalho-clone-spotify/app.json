@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "trab-individual-02",
+    "slug": "trab-individual-02",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/spotify_small.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/spotify_splash.png",
+      "resizeMode": "stretch",
+      "backgroundColor": "gray"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/spotify_small.png",
+        "backgroundColor": "gray",
+        "transition": "fade"
+      },
+      "package": "com.yourcompany.yourappname"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "12f41e0a-d8c6-4cb9-9092-0b4528d03a75"
+      }
+    },
+    "owner": "paulotuler001"
+  }
+}
