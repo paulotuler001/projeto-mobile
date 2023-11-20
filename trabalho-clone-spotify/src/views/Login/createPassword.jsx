@@ -10,18 +10,42 @@ import React, { useState } from "react";
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from '@expo/vector-icons'; 
+import { api } from "../../services/api";
 
 const CreatePassowordPage = () => {
   const [emailFocus, setEmailFocus] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
 
   const navigation = useNavigation();
+  const navigation2 = useNavigation();
+  const [novaSenha, setNovaSenha] = useState('');
+  const [listaCadastro, setListaCadastro] = useState([]);
 
   const handlePressBack = () => {
     navigation.navigate("SignUpPage");
   };
 
+  const handlePressNext = () => {
+    navigation2.navigate('Home')
+  }
+
   //post
+
+  const addSenha = async() => {
+    
+    try {
+      
+      const {data} = await api.post("/conta", novaSenha)
+      setListaCadastro([...listaCadastro, data])
+      // setNovaSenha("") 
+      setNovaSenha("") //
+      console.log(data);
+      handlePressNext();
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
 
   return (
     <KeyboardAvoidingView  style={{padding: 5, backgroundColor: "#101010", flex:1}}>
@@ -87,6 +111,7 @@ const CreatePassowordPage = () => {
               borderColor: "white",
               justifyContent: "center",
             }}
+            onPress={handlePressNext}
           >
             <Text
               style={{ color: "#101010", width: "auto", alignSelf: "center" }}

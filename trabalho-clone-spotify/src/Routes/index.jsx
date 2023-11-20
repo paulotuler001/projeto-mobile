@@ -3,10 +3,12 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../views/Login";
-import Home from "../views/Home";
+import Home from "../views/Home/home";
 import LogInPage from "../views/Login/login";
 import SignUpPage from "../views/Login/signup";
 import CreatePasswordPage from "../views/Login/createPassword";
+import BirthDay from "../views/Login/birthday";
+import AddMusic from "../views/Home/addMusic";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -15,8 +17,29 @@ const Rotas = () => {
     <NavigationContainer>
       <Navigator>
         {/* <Screen name="Home" component={Home} options={{
+          headerShown: false,
+        }}></Screen> */}
+        <Screen
+          name="Home"
+          component={Home}
+          options={{
             headerShown: false,
-          }}></Screen> */}
+          }}
+        />
+        <Screen
+          name="AddMusic"
+          component={AddMusic}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Screen
+          name="BirthDay"
+          component={BirthDay}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Screen
           name="Login"
           component={Login}

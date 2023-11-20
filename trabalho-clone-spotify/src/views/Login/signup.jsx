@@ -14,10 +14,10 @@ import { api } from "../../services/api";
 
 const SignUpPage = () => {
   const [emailFocus, setEmailFocus] = useState(false);
-  const [passwordFocus, setPasswordFocus] = useState(false);
+  // const [passwordFocus, setPasswordFocus] = useState(false);
 
   const [novoEmail, setNovoEmail] = useState('');
-  const [novaSenha, setNovaSenha] = useState('');
+  // const [novaSenha, setNovaSenha] = useState('');
   const [listaCadastro, setListaCadastro] = useState([]);
 
   const navigation = useNavigation();
@@ -34,11 +34,12 @@ const SignUpPage = () => {
     
     try {
       
-      const {dados} = await api.post("/conta", novoEmail)
-      setListaCadastro([...listaCadastro, dados])
+      // const {data} = await api.post("/conta", novoEmail)
+      // setListaCadastro([...listaCadastro, data])
       // setNovaSenha("") 
       setNovoEmail("") //
-      
+      // console.log(data);
+      handlePressNext();
     } catch (error) {
       console.log(error);
     }
@@ -85,10 +86,11 @@ const SignUpPage = () => {
           }}
           onFocus={() => setEmailFocus(true)}
           onBlur={() => setEmailFocus(false)}
-          onPress={addEmail}
-        ></TextInput>
+          value={novoEmail}
+          onChangeText={setNovoEmail}
+        />
         <Text style={{color: 'white', fontSize:12}}>You'll need to confirm this email later.</Text>
-          {/* <FontAwesome name="eye" size={25} color='white' style={{ flex:1,justifyContent: 'flex-end' }}></FontAwesome> */}
+        
         <View style={{ flex: 1, alignItems: "center" }}>
           <TouchableOpacity
             style={{
@@ -101,7 +103,7 @@ const SignUpPage = () => {
               borderColor: "white",
               justifyContent: "center",
             }}
-            onPress={handlePressNext}
+            onPress={addEmail}
           >
             <Text
               style={{ color: "#101010", width: "auto", alignSelf: "center" }}
