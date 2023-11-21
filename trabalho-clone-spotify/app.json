@@ -23,7 +23,7 @@
         "backgroundColor": "gray",
         "transition": "fade"
       },
-      "package": "com.yourcompany.yourappname"
+      "package": "com.paulotuler001.clonespotify"
     },
     "web": {
       "favicon": "./assets/favicon.png"
