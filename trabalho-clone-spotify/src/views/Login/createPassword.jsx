@@ -33,6 +33,13 @@ const CreatePassowordPage = () => {
 
   const addSenha = async() => {
     
+    const conta = {
+      email: 'novoEmail',
+      senha: novaSenha,
+      nome: 'novoNome',
+      dataNascimento: 'novaDataNascimento',
+    };
+
     try {
       
       const {data} = await api.post("/conta", novaSenha)

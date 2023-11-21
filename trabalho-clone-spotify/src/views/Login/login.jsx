@@ -8,7 +8,6 @@ import {
 import React, { useState } from "react";
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import LoginSpotify from "./LoginSpotify";
 import { AntDesign } from '@expo/vector-icons'; 
 
 
@@ -21,6 +20,13 @@ const LogInPage = () => {
   const handlePressBack = () => {
     navigation.navigate("Login");
   };
+
+  const navigation2 = useNavigation();
+
+  const handlePressNext = () => {
+    navigation2.navigate("Home");
+  };
+
 
   return (
     <View style={{ padding: 5, backgroundColor: "#101010", flex: 1 }}>
@@ -70,6 +76,7 @@ const LogInPage = () => {
             borderColor: "white",
             justifyContent: "center",
           }}
+          onPress={handlePressNext}
         >
           <Text
             style={{ color: "#101010", width: "auto", alignSelf: "center" }}
@@ -93,6 +100,7 @@ const LogInPage = () => {
             borderColor: "white",
             justifyContent: "center",
           }}
+          onPress={handlePressNext}
         >
           <Text style={{ color: "white", alignSelf: "center", fontSize: 12 }}>
             Log in without password

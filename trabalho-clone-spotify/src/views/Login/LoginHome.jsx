@@ -6,10 +6,9 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 import { FontAwesome } from "@expo/vector-icons";
 import LogInPage from "./login";
 import { useNavigation } from "@react-navigation/native";
-import LoginSpotify from "./LoginSpotify";
 // import {FontAwesome } from "@expo/vector-icons";
 
-const Login = () => {
+const LoginPage = () => {
   const navigation = useNavigation();
 
   const handlePressLogin = () => {
@@ -136,7 +135,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;
 
 const styles = StyleSheet.create({
   containerText: {

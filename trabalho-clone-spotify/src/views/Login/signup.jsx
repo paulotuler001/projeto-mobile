@@ -30,21 +30,43 @@ const SignUpPage = () => {
     navigation2.navigate("CreatePasswordPage");
   };
 
-  const addEmail = async() => {
-    
+  const addEmail = async () => {
+    const conta = {
+      email: novoEmail,
+      senha: 'novaSenha',
+      nome: 'novoNome',
+      dataNascimento: 'novaDataNascimento',
+    };
+  
     try {
+      console.log("Iniciando requisição:", conta);
+      const response = await api.post("/conta", conta);
+      console.log("Resposta da API:", response.data);
+  
+      setListaCadastro([...listaCadastro, response.data]);
+      setNovoEmail("");
+      console.log("Cadastro atualizado:", listaCadastro);
+  
       
-      // const {data} = await api.post("/conta", novoEmail)
-      // setListaCadastro([...listaCadastro, data])
-      // setNovaSenha("") 
-      setNovoEmail("") //
-      // console.log(data);
-      handlePressNext();
     } catch (error) {
-      console.log(error);
+      console.log("Erro ao adicionar conta:", error);
+  
+      if (error.response) {
+        // O servidor respondeu com um status de erro
+        console.log("Data da resposta:", error.response.data);
+        console.log("Status da resposta:", error.response.status);
+        console.log("Cabeçalhos da resposta:", error.response.headers);
+      } else if (error.request) {
+        // A solicitação foi feita, mas não houve resposta do servidor
+        console.log("Solicitação feita, mas sem resposta do servidor");
+      } else {
+        // Algo aconteceu durante a configuração da solicitação que provocou o erro
+        console.log("Erro durante a configuração da solicitação:", error.message);
+      }
+    }finally{
+      handlePressNext(); 
     }
-
-  }
+  };
 
 
   return (
