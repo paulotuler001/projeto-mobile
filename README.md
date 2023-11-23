@@ -27,7 +27,7 @@
 </ul>
 Imagem do app oficial:
 <image 
- width=300 height=700 src='https://github.com/paulotuler001/projeto-mobile/blob/main/prints/spotify3.jpeg'/>
+ width=450 height=700 src='https://github.com/paulotuler001/projeto-mobile/blob/main/prints/spotify3.jpeg'/>
 Imagem do Clone do app:
 <image src='https://github.com/paulotuler001/projeto-mobile/blob/main/prints/Captura%20de%20tela%202023-11-21%20182752.png'/>
 
